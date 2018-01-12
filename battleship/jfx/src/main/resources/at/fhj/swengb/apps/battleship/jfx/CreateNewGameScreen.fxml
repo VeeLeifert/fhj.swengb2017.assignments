@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="CreateNewGameScreen" maxHeight="566.0" maxWidth="800.0" minHeight="566.0" minWidth="800.0" prefHeight="566.0" prefWidth="800.0" stylesheets="@battleship.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.battleship.jfx.BattleShipFxControllerCreateGame">
+<Pane id="CreateNewGameScreen" maxHeight="566.0" maxWidth="800.0" minHeight="566.0" minWidth="800.0" prefHeight="566.0" prefWidth="800.0" stylesheets="@battleship.css" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.battleship.jfx.BattleShipFxControllerCreateGame">
    <children>
 
       <ImageView fitHeight="120.0" fitWidth="130.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
