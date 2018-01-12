@@ -108,4 +108,24 @@
 | 1
 | Project Report
 
+| leifertv15
+| 2018-01-12
+| 2.5
+| Mockups, Git
+
+| derlermi16
+| 2018-01-12
+| 2.5
+| Code
+
+| heiderst16
+| 2018-01-12
+| 2.5
+| Code
+
+| lambrech16
+| 2018-01-12
+| 2.5
+| Documentation
+
 |===
