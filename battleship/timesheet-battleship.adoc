@@ -36,22 +36,22 @@
 | leifertv15
 | 2017-12-28
 | 4
-| Digitalizing Splash Screens (PS)
+| Digitalizing MockUps (PS)
 
 | leifertv15
 | 2017-12-30
 | 3
-| Digitalizing Splash Screens (Word)
+| Digitalizing MockUps (Word)
 
 | lambrech16
 | 2017-12-30
 | 3
-| Digitalizing Splash Screens (Word)
+| Digitalizing MockUps (Word)
 
 | leifertv15
 | 2018-01-01
 | 1
-| Digitalizing Splash Screens (Word)
+| Digitalizing MockUps (Word)
 
 | lambrech16
 | 2018-01-02
@@ -61,22 +61,22 @@
 | leifertv15
 | 2018-01-05
 | 6
-| Refining Splash Screens
+| Refining MockUps
 
 | heiderst16
 | 2018-01-05
 | 6
-| Refining Splash Screens
+| Refining MockUps
 
 | derlermi16
 | 2018-01-05
 | 6
-| Refining Splash Screens
+| Refining MockUps
 
 | lambrech16
 | 2018-01-05
 | 4
-| Refining Splash Screens
+| Refining MockUps
 
 | lambrech16
 | 2018-01-05
@@ -124,8 +124,20 @@
 | Code
 
 | lambrech16
-| 2018-01-12
-| 2.5
-| Documentation
+| 2018-01-13
+| 3
+| manual
+
+| heiderst16
+| 2018-01-13
+| 3
+| fxmls
+
+| leifertv15
+| 2018-01-13
+| 3
+| fxmls
+
+
 
 |===
