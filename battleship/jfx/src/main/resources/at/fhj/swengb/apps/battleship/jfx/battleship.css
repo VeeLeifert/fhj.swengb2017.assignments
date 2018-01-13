@@ -38,7 +38,6 @@
 #CreateNewGameScreen {
     -fx-background-image: url(Recourses/CreateNewGameBG);
     -fx-background-size: 800px 566px;
-    
 }
 
 .Headers {
