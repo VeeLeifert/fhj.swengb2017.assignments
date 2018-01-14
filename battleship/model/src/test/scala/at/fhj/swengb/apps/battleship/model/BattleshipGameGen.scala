@@ -16,10 +16,10 @@ object BattleshipGameGen {
   } yield BattleField(width, height, Fleet(Seq(FleetConfig.OneShip, FleetConfig.TwoShips, FleetConfig.Standard)(x)))
 
   //Generator to generate a new instance of BattleShipGame
-  val battleShipGameGen: Gen[BattleShipGame] = for {
+  val battleShipGameGen: Gen[PlayerField] = for {
     battlefield <- FieldGenerator3000
   } yield {
     //                          Log,     Slider,  CellWidth,       CellHeight
-    BattleShipGame(battlefield, x => (), x => (), x => x.toDouble, x => x.toDouble)
+    PlayerField(battlefield, x => (), x => (), x => x.toDouble, x => x.toDouble)
   }
 }

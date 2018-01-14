@@ -11,14 +11,14 @@ import javafx.scene.layout.GridPane
 import javafx.stage.{FileChooser, Stage}
 import javafx.stage.FileChooser.ExtensionFilter
 
-import at.fhj.swengb.apps.battleship.model.{BattleField, BattlePos, BattleShipGame, Fleet, FleetConfig}
+import at.fhj.swengb.apps.battleship.model.{BattleField, BattlePos, PlayerField, Fleet, FleetConfig}
 import at.fhj.swengb.apps.battleship.BattleShipProtocol
 
 import scala.util.{Failure, Success, Try}
 
 class BattleShipFxController extends Initializable {
 
-  private var Game: BattleShipGame = _
+  private var Game: PlayerField = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = newGame()
   def LogAdder3000(text: String): Unit = log.appendText(text + "\n")
@@ -27,7 +27,7 @@ class BattleShipFxController extends Initializable {
 
 
 
-  def Initiator3000(game: BattleShipGame, ClickChecker3000: List[BattlePos]): Unit = {
+  def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {
     Game = game
     battleGroundGridPane.getChildren.clear()
     for (cells <- game.CellReader3000()) {
@@ -41,16 +41,16 @@ class BattleShipFxController extends Initializable {
   }
 
 
-  private def GameCreator3000(): BattleShipGame = {
+  private def GameCreator3000(): PlayerField = {
     val Field = BattleField(10, 10, Fleet(FleetConfig.Standard))
-    BattleShipGame(BattleField.RandomPlacer3000(Field), LogAdder3000, SliderAdder3000, WidthReader3000, HeightReader3000)
+    PlayerField(BattleField.RandomPlacer3000(Field), LogAdder3000, SliderAdder3000, WidthReader3000, HeightReader3000)
   }
 
-  private def GameLoader3000(filePath: String): (BattleShipGame, List[BattlePos]) = {
+  private def GameLoader3000(filePath: String): (PlayerField, List[BattlePos]) = {
     val LoadDestination = at.fhj.swengb.apps.battleship.BattleShipProtobuf.BattleShipGame
         .parseFrom(Files.newInputStream(Paths.get(filePath)))
 
-    val Game = BattleShipGame(BattleShipProtocol.convert(LoadDestination).battleField,
+    val Game = PlayerField(BattleShipProtocol.convert(LoadDestination).battleField,
       LogAdder3000,
       SliderAdder3000,
       WidthReader3000,

@@ -52,8 +52,32 @@ object BattleShipProtocol {
       vessel.getSize)
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //Converter: Game State => Protobuf Game State
-  def convert(game: BattleShipGame): BattleShipProtobuf.BattleShipGame = {
+  def convert(game: PlayerField): BattleShipProtobuf.BattleShipGame = {
     val ProtoField3000 = BattleShipProtobuf.BattleShipGame
       .newBuilder()
       .setColumns(game.battleField.width)
@@ -70,10 +94,10 @@ object BattleShipProtocol {
   }
 
   //Converter: Protobuf Game State => Game State
-  def convert(game: BattleShipProtobuf.BattleShipGame): BattleShipGame = {
+  def convert(game: BattleShipProtobuf.BattleShipGame): PlayerField = {
 
     //Rebuilding the whole Game State
-    val BattleShipGame3000 = BattleShipGame(
+    val BattleShipGame3000 = PlayerField(
       BattleField(game.getColumns, game.getRows, Fleet(game.getVesselsList.asScala.map(e => convert(e)).toSet)),
       e => (), //Log
       e => (), //Slider

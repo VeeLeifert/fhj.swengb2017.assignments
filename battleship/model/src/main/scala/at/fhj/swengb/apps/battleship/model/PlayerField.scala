@@ -3,11 +3,11 @@ package at.fhj.swengb.apps.battleship.model
 /**
   * Contains all information about a battleship game.
   */
-case class BattleShipGame(battleField: BattleField,
-                          log: String => Unit,
-                          updateSlider: Int => Unit,
-                          getCellWidth: Int => Double,
-                          getCellHeight: Int => Double,
+case class PlayerField(battleField: BattleField,
+                       log: String => Unit,
+                       updateSlider: Int => Unit,
+                       getCellWidth: Int => Double,
+                       getCellHeight: Int => Double,
                           ) {
 
   /**

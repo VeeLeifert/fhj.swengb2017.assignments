@@ -54,7 +54,7 @@
         </Label>
     </top>
     <center>
-        <GridPane fx:id="editFieldTwo" alignment="CENTER" hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+        <GridPane fx:id="editTwoField" alignment="CENTER" hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
