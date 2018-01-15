@@ -2,25 +2,14 @@ package at.fhj.swengb.apps.battleship.model
 
 import scala.util.Random
 
-case class BattleShipGame(playerOne: String,
-                          playerTwo: String,
-                          playerOneField: BattleField,
-                          playerTwoField: BattleField,
-                          getCellWidth: Int => Double,
-                          getCellHeight: Int => Double,
-                          updateGameState: PlayerField => Unit,
-                          log: String => Unit) {
+object BattleShipGame {
 
-  val gamePlayerA: PlayerField = fieldCreator3000(playerOne,playerTwoField,getCellWidth,getCellHeight,updateGameState,log)
-  val gamePlayerB: PlayerField = fieldCreator3000(playerTwo,playerOneField,getCellWidth,getCellHeight,updateGameState,log)
-
-  private def fieldCreator3000(commander: String,
-                               battlefield: BattleField,
+  private def fieldCreator3000(battlefield: BattleField,
+                               log: String => Unit,
+                               updateGameState: PlayerField => Unit,
                                getCellWidth: Int => Double,
                                getCellHeight: Int => Double,
-                               updateGameState: PlayerField => Unit,
-                               log: String => Unit
-                               ): PlayerField = {
+                               commander: String): PlayerField = {
 
     val battlefield: BattleField = BattleField(10, 10, Fleet(FleetConfig.Standard))
 
@@ -51,11 +40,15 @@ case class BattleShipGame(playerOne: String,
     val c: Int = r.nextInt(3)
     val lastMiddlePart: String = listThree(c)
 
-    val d: Int = r.nextInt(3)
+    val d: Int = r.nextInt(5)
     val lastPart: String = listFour(d)
 
     val battleName: String = firstPart ++ firstMiddlePart ++ lastMiddlePart ++ lastPart
     battleName
   }
+
+}
+
+case class BattleShipGame(WarAreas: Seq[PlayerField], battleName: String){
 
 }

@@ -10,6 +10,7 @@ message BattleShipGame {
 
     string BattleName = 1;
     repeated PlayerField WarAreas = 2;
+    string Champion = 3;
 
     message PlayerField {
         uint32 Rows = 1;
