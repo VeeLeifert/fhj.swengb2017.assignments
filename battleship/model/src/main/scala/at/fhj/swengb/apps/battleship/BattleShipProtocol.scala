@@ -53,8 +53,7 @@ object BattleShipProtocol {
       vessel.getSize)
   }
 
-
-  //Converter: Game State => Protobuf Game State
+  //Converter: PlayerField => Protobuf PlayerField
   def convert(game: PlayerField): BattleShipProtobuf.BattleShipGame.PlayerField = {
     val ProtoField3000 = BattleShipProtobuf.BattleShipGame.PlayerField.newBuilder()
 
@@ -69,7 +68,7 @@ object BattleShipProtocol {
     ProtoField3000.build()
   }
 
-  //Converter: Protobuf Game State => Game State
+  //Converter: Protobuf PlayerField => PlayerField
   def convert(game: BattleShipProtobuf.BattleShipGame.PlayerField): PlayerField = {
 
     //Rebuilding the whole Game State
@@ -86,4 +85,7 @@ object BattleShipProtocol {
     BattleShipGame3000 //Returning Game State
   }
 
+  //Converter: Game => Protobuf Game
+
+  //Converter: Protobuf Game => Game
 }
