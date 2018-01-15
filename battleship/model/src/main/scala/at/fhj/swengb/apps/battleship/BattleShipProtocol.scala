@@ -21,7 +21,7 @@ object BattleShipProtocol {
     BattlePos(Position3000.getColumn, Position3000.getRow)
   }
 
- //Converter: Vessel => Protobuf Vessel
+  //Converter: Vessel => Protobuf Vessel
   def convert(vessel: at.fhj.swengb.apps.battleship.model.Vessel): Vessel = {
     Vessel.newBuilder()
       .setAlignment(vessel.direction match {
@@ -48,53 +48,29 @@ object BattleShipProtocol {
       vessel.getAlignment match {
         case "Vertical" => Vertical
         case "Horizontal" => Horizontal
-        case _ => Vertical},
+        case _ => Vertical
+      },
       vessel.getSize)
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //Converter: Game State => Protobuf Game State
-  def convert(game: PlayerField): BattleShipProtobuf.BattleShipGame = {
-    val ProtoField3000 = BattleShipProtobuf.BattleShipGame
-      .newBuilder()
-      .setColumns(game.battleField.width)
-      .setRows(game.battleField.height)
+  def convert(game: PlayerField): BattleShipProtobuf.BattleShipGame.PlayerField = {
+    val ProtoField3000 = BattleShipProtobuf.BattleShipGame.PlayerField.newBuilder()
 
+    ProtoField3000.setColumns(game.battleField.width)
+    ProtoField3000.setRows(game.battleField.height)
+    ProtoField3000.setCommander(game.commander)
     //Converting the Vessels into Protobuf Format
     game.battleField.fleet.vessels.map(x => convert(x)).foreach(x => ProtoField3000.addVessels(x))
-
     //Converting the Cells that were already hit into Protobuf Format
     game.GameState.map(x => convert(x)).foreach(x => ProtoField3000.addHitCells(x))
-
     //Convert the Game State into Protobuf Format
     ProtoField3000.build()
   }
 
   //Converter: Protobuf Game State => Game State
-  def convert(game: BattleShipProtobuf.BattleShipGame): PlayerField = {
+  def convert(game: BattleShipProtobuf.BattleShipGame.PlayerField): PlayerField = {
 
     //Rebuilding the whole Game State
     val BattleShipGame3000 = PlayerField(
@@ -102,8 +78,8 @@ object BattleShipProtocol {
       e => (), //Log
       e => (), //Slider
       e => e.toDouble, //CellWidth
-      e => e.toDouble) //CellHeight
-
+      e => e.toDouble,//CellHeight
+      game.getCommander) //Commander
     //List with Cells that were already hit:
     val HitCells: List[BattlePos] = game.getHitCellsList.asScala.map(e => convert(e)).toList
     BattleShipGame3000.GameState = HitCells

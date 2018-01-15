@@ -20,6 +20,6 @@ object BattleshipGameGen {
     battlefield <- FieldGenerator3000
   } yield {
     //                          Log,     Slider,  CellWidth,       CellHeight
-    PlayerField(battlefield, x => (), x => (), x => x.toDouble, x => x.toDouble)
+    PlayerField(battlefield, x => (), x => (), x => x.toDouble, x => x.toDouble, null)
   }
 }

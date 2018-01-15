@@ -20,7 +20,7 @@ class BattleShipFxController extends Initializable {
 
   private var Game: PlayerField = _
 
-  override def initialize(url: URL, rb: ResourceBundle): Unit = newGame()
+  override def initialize(url: URL, rb: ResourceBundle): Unit = ??? }/*newGame()
   def LogAdder3000(text: String): Unit = log.appendText(text + "\n")
   def WidthReader3000(width: Int): Int = battleGroundGridPane.getColumnConstraints.get(width).getPrefWidth.toInt
   def HeightReader3000(height: Int): Int = battleGroundGridPane.getRowConstraints.get(height).getPrefHeight.toInt
@@ -43,7 +43,7 @@ class BattleShipFxController extends Initializable {
 
   private def GameCreator3000(): PlayerField = {
     val Field = BattleField(10, 10, Fleet(FleetConfig.Standard))
-    PlayerField(BattleField.RandomPlacer3000(Field), LogAdder3000, SliderAdder3000, WidthReader3000, HeightReader3000)
+    PlayerField(BattleField.RandomPlacer3000(Field), LogAdder3000, SliderAdder3000, WidthReader3000, HeightReader3000, null)
   }
 
   private def GameLoader3000(filePath: String): (PlayerField, List[BattlePos]) = {
@@ -54,7 +54,8 @@ class BattleShipFxController extends Initializable {
       LogAdder3000,
       SliderAdder3000,
       WidthReader3000,
-      HeightReader3000)
+      HeightReader3000,
+      null)
 
     Game.GameState = List()
     (Game, BattleShipProtocol.convert(LoadDestination).GameState.reverse)
@@ -130,4 +131,4 @@ class BattleShipFxController extends Initializable {
   }
 
   @FXML def work(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/screen2.fxml"),BattleShipFxApp.FirstStage3000)
-}
+}*/
