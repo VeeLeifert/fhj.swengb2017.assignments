@@ -12,6 +12,7 @@ import java.nio.file.{Files, Paths}
 import at.fhj.swengb.apps.battleship.BattleShipProtocol
 import at.fhj.swengb.apps.battleship.model.PlayerField
 
+
 class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML var log: TextArea = _

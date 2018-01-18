@@ -1,5 +1,9 @@
 package at.fhj.swengb.apps.battleship.model
 
+import java.nio.file.{Files, Paths}
+
+import at.fhj.swengb.apps.battleship.BattleShipProtocol
+
 import scala.util.Random
 
 object BattleShipGame {
