@@ -84,7 +84,7 @@ object BattleShipProtocol {
     BattleShipGame3000.GameState = HitCells
     BattleShipGame3000 //Returning Game State
   }
-/*
+
   //Converter: Game => Protobuf Game
   def convert(game: BattleShipGame): BattleShipProtobuf.BattleShipGame = {
 
@@ -93,9 +93,6 @@ object BattleShipProtocol {
     val protoGames = game.WarAreas.map(e => convert(e))
     protoGames.foreach(e => protobufGame.addWarAreas(e))
 
-    if (! game.getChampion.isEmpty) {
-      protobufGame.setChampion(convert(game.getChampion.get))
-    }
     protobufGame.build()
   }
 
@@ -104,10 +101,6 @@ object BattleShipProtocol {
 
     val BattleShipGame3000 = BattleShipGame(protobufGame.getWarAreasList.asScala.map(e => convert(e)).toList, protobufGame.getBattleName)
 
-    //Set Winner of round if set (Highscore data)
-    if (protobufGame.hasChampion) {
-      BattleShipGame3000.setChampion(convert(protobufGame.getChampion))
-    }
     BattleShipGame3000
-  }*/
+  }
 }
