@@ -13,14 +13,36 @@ import at.fhj.swengb.apps.battleship.BattleShipProtocol
 import at.fhj.swengb.apps.battleship.model.PlayerField
 
 
+object BattleShipFxControllerPlayerOne {
+
+  @FXML var log: TextArea = _
+
+  var newGameChecker: Int = _
+  def resetNewGameChecker: Unit = {
+    newGameChecker = 0
+  }
+
+  def newGame: Unit = {
+    newGameChecker = 1
+    log.setText("")
+    log.appendText("A new game has started")
+  }
+}
+
+
 class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML var log: TextArea = _
   @FXML var Title: Label = _
   private var Game: PlayerField = _
+  var newGameChecker: Int = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     //Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerOne)
+
+    /*if (newGameChecker == 0) {
+      BattleShipFxControllerPlayerOne.newGame
+    }*/
   }
 
   @FXML def toWelcome(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/welcomescreen.fxml"),BattleShipFxApp.FirstStage3000)

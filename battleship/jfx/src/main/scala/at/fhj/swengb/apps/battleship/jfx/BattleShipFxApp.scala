@@ -17,6 +17,7 @@ object BattleShipFxApp {
 
   def ScenePresenter3000(scene: Scene, stage: Stage): Unit = {
     stage.setScene(scene)
+    stage.setResizable(false)
     stage.show()
   }
 

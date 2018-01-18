@@ -82,6 +82,7 @@ class BattleShipFxControllerCreateGame extends Initializable {
       //BattleShipFxControllerCreateGame.getPlayerOne
       //BattleShipFxControllerCreateGame.getPlayerTwo
       //BattleShipFxControllerCreateGame.getFinalBattleName
+      BattleShipFxControllerPlayerOne.resetNewGameChecker
       BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/editone.fxml"), BattleShipFxApp.FirstStage3000)
   }
 }
