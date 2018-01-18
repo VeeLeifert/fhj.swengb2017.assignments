@@ -18,7 +18,7 @@
 
     </right>
     <top>
-        <Label id="Title" fx:id="Title" alignment="CENTER" contentDisplay="CENTER" prefHeight="98.0" prefWidth="752.0" stylesheets="@battleshipfx.css" text="Gamename - Player1" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+        <Label id="Title" fx:id="Title" alignment="CENTER" contentDisplay="CENTER" prefHeight="98.0" prefWidth="752.0" stylesheets="@battleshipfx.css" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
             <font>
                 <Font name="Krungthep" size="34.0" />
             </font>
@@ -94,7 +94,7 @@
         </GridPane>
     </center>
    <bottom>
-        <TextArea fx:id="area53" maxWidth="754.0" prefHeight="74.0" prefWidth="752.0" styleClass="textField" stylesheets="@battleshipfx.css" wrapText="true" BorderPane.alignment="CENTER">
+        <TextArea fx:id="log" maxWidth="754.0" prefHeight="74.0" prefWidth="752.0" styleClass="textField" stylesheets="@battleshipfx.css" wrapText="true" BorderPane.alignment="CENTER">
             <font>
                 <Font size="12.0" />
             </font>
@@ -104,9 +104,9 @@
         </TextArea>
    </bottom>
    <left>
-      <TextArea fx:id="area51" prefHeight="406.0" prefWidth="135.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="playerOneInfo" prefHeight="406.0" prefWidth="135.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <TextArea fx:id="area52" prefHeight="406.0" prefWidth="136.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="playerTwoInfo" prefHeight="406.0" prefWidth="136.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>
