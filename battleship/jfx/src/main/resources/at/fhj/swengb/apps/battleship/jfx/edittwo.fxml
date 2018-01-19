@@ -17,7 +17,7 @@
 
     </right>
     <top>
-        <Label id="Title" fx:id="Title" alignment="CENTER" contentDisplay="CENTER" prefHeight="98.0" prefWidth="752.0" stylesheets="@battleshipfx.css" text="Gamename - Player" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+        <Label id="Title" fx:id="Title" alignment="CENTER" contentDisplay="CENTER" prefHeight="98.0" prefWidth="752.0" stylesheets="@battleshipfx.css" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
             <font>
                 <Font name="Krungthep" size="34.0" />
             </font>

@@ -38,7 +38,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
   var newGameChecker: Int = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
-    //Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerOne)
+    Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerOne)
 
     /*if (newGameChecker == 0) {
       BattleShipFxControllerPlayerOne.newGame
