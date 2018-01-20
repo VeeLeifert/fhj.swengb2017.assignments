@@ -8,25 +8,27 @@ import javafx.stage.{FileChooser, Stage}
 import javafx.stage.FileChooser.ExtensionFilter
 import java.io.File
 import java.nio.file.{Files, Paths}
+import javafx.scene.layout.GridPane
 
 import at.fhj.swengb.apps.battleship.BattleShipProtocol
-import at.fhj.swengb.apps.battleship.model.PlayerField
+import at.fhj.swengb.apps.battleship.model._
 
 
 object BattleShipFxControllerPlayerOne {
 
   @FXML var log: TextArea = _
+  var SliderState: Int = _
 
   var newGameChecker: Int = _
-  def resetNewGameChecker: Unit = {
-    newGameChecker = 0
+
+  def resetNewGameChecker(state: Int) {
+    newGameChecker = state
   }
 
-  def newGame: Unit = {
-    newGameChecker = 1
-    log.setText("")
-    log.appendText("A new game has started")
+  def sliderStateRenewer(value: Int) = {
+
   }
+
 }
 
 
@@ -36,13 +38,17 @@ class BattleShipFxControllerPlayerOne extends Initializable {
   @FXML var Title: Label = _
   private var Game: PlayerField = _
   var newGameChecker: Int = _
+  @FXML private var playerTwoField: GridPane = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerOne)
 
-    /*if (newGameChecker == 0) {
-      BattleShipFxControllerPlayerOne.newGame
-    }*/
+    if (newGameChecker == 0) {
+      newGameChecker = 1
+      log.setText("")
+      log.appendText("A new game has started")
+      Initiator3000(GameCreator3000(), List())
+    }
   }
 
   @FXML def toWelcome(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/welcomescreen.fxml"),BattleShipFxApp.FirstStage3000)
@@ -61,5 +67,29 @@ class BattleShipFxControllerPlayerOne extends Initializable {
       log.appendText("\n" ++ "Saved Game")
     }
 
+  def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {
+    Game = game
+    playerTwoField.getChildren.clear()
+    for (cells <- game.CellReader3000()) {
+
+      playerTwoField.add(cells, cells.pos.x, cells.pos.y)
+    }
+    game.GameState = List()
+    game.CellReader3000().foreach(c => c.init())
+    game.RebuildGame(ClickChecker3000)
+  }
+
+  private def GameCreator3000(): PlayerField = {
+    val Field = BattleField(10, 10, Fleet(FleetConfig.Standard))
+    PlayerField(BattleField.RandomPlacer3000(Field), LogAdder3000, SliderAdder3000, WidthReader3000, HeightReader3000, null)
+  }
+
+  def LogAdder3000(text: String): Unit = log.appendText(text + "\n")
+  def WidthReader3000(width: Int): Int = playerTwoField.getColumnConstraints.get(width).getPrefWidth.toInt
+  def HeightReader3000(height: Int): Int = playerTwoField.getRowConstraints.get(height).getPrefHeight.toInt
+
+  def SliderAdder3000(Stack: Int): Unit = {
+    BattleShipFxControllerPlayerOne.sliderStateRenewer(Stack)
+  }
 
 }

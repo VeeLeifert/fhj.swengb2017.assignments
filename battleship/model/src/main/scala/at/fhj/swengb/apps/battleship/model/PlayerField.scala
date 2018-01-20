@@ -5,7 +5,7 @@ package at.fhj.swengb.apps.battleship.model
   */
 case class PlayerField(battleField: BattleField,
                        log: String => Unit,
-                       updateGameState: PlayerField => Unit,
+                       updateGameState: Int => Unit,
                        getCellWidth: Int => Double,
                        getCellHeight: Int => Double,
                        commander: String) {
@@ -49,7 +49,7 @@ case class PlayerField(battleField: BattleField,
 
   def ClickReader3000(pos: BattlePos): Unit = {
     GameState = pos :: GameState
-    updateGameState(this)
+    updateGameState(GameState.size)
   }
 
   def RebuildGame(pos: List[BattlePos]): Unit = {

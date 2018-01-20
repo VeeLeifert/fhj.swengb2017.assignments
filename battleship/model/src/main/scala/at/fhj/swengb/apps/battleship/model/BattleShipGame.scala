@@ -10,7 +10,7 @@ object BattleShipGame {
 
   private def fieldCreator3000(battlefield: BattleField,
                                log: String => Unit,
-                               updateGameState: PlayerField => Unit,
+                               updateGameState: Int => Unit,
                                getCellWidth: Int => Double,
                                getCellHeight: Int => Double,
                                commander: String): PlayerField = {
