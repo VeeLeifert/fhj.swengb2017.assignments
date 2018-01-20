@@ -1,7 +1,7 @@
 package at.fhj.swengb.apps.battleship
 
-import at.fhj.swengb.apps.battleship.BattleShipProtobuf.BattleShipGame.{Position, Vessel}
-import at.fhj.swengb.apps.battleship.model.{NonEmptyString, _}
+import at.fhj.swengb.apps.battleship.PlayerFieldProtobuf.PlayerField.{Position, Vessel}
+import at.fhj.swengb.apps.battleship.model._
 
 import scala.collection.JavaConverters._
 
@@ -78,8 +78,8 @@ object PlayerFieldProtocol {
       e => (), //Log
       e => (), //Slider
       e => e.toDouble, //CellWidth
-      e => e.toDouble,
-      game.getCommander) //CellHeight
+      e => e.toDouble, //CellHeight
+      game.getCommander)
 
     //List with Cells that were already hit:
     val HitCells: List[BattlePos] = game.getHitCellsList.asScala.map(e => convert(e)).toList
