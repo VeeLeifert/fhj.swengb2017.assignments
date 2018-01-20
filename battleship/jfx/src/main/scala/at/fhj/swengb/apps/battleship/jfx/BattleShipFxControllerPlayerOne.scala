@@ -37,14 +37,13 @@ class BattleShipFxControllerPlayerOne extends Initializable {
   @FXML var log: TextArea = _
   @FXML var Title: Label = _
   private var Game1: PlayerField = _
-  var newGameChecker1: Int = _
   @FXML private var playerTwoField: GridPane = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerOne)
 
-    if (newGameChecker1 == 0) {
-      newGameChecker1 = 1
+    if (BattleShipFxControllerPlayerOne.newGameChecker1 == 0) {
+      BattleShipFxControllerPlayerOne.newGameChecker1 = 1
       log.setText("")
       log.appendText("A new game has started")
       Initiator3000(GameCreator3000(), List())

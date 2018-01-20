@@ -14,15 +14,15 @@ import at.fhj.swengb.apps.battleship.BattleShipProtocol
 import at.fhj.swengb.apps.battleship.model._
 
 
-object BattleShipFxControllerPlayerOne {
+object BattleShipFxControllerPlayerTwo {
 
   @FXML var log: TextArea = _
   var SliderState: Int = _
 
-  var newGameChecker: Int = _
+  var newGameChecker2: Int = _
 
   def resetNewGameChecker(state: Int) {
-    newGameChecker = state
+    newGameChecker2 = state
   }
 
   def sliderStateRenewer(value: Int) = {
@@ -36,14 +36,13 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
   @FXML var log: TextArea = _
   @FXML var Title: Label = _
   private var Game2: PlayerField = _
-  var newGameChecker2: Int = _
   @FXML private var playerOneField: GridPane = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerTwo)
 
-    if (newGameChecker2 == 0) {
-      newGameChecker2 = 1
+    if (BattleShipFxControllerPlayerTwo.newGameChecker2 == 0) {
+      BattleShipFxControllerPlayerTwo.newGameChecker2 = 1
       log.setText("")
       log.appendText("A new game has started")
       Initiator3000(GameCreator3000(), List())
