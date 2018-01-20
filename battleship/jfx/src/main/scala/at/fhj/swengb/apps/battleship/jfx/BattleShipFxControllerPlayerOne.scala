@@ -19,10 +19,10 @@ object BattleShipFxControllerPlayerOne {
   @FXML var log: TextArea = _
   var SliderState: Int = _
 
-  var newGameChecker: Int = _
+  var newGameChecker1: Int = _
 
   def resetNewGameChecker(state: Int) {
-    newGameChecker = state
+    newGameChecker1 = state
   }
 
   def sliderStateRenewer(value: Int) = {
@@ -36,15 +36,15 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML var log: TextArea = _
   @FXML var Title: Label = _
-  private var Game: PlayerField = _
-  var newGameChecker: Int = _
+  private var Game1: PlayerField = _
+  var newGameChecker1: Int = _
   @FXML private var playerTwoField: GridPane = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerOne)
 
-    if (newGameChecker == 0) {
-      newGameChecker = 1
+    if (newGameChecker1 == 0) {
+      newGameChecker1 = 1
       log.setText("")
       log.appendText("A new game has started")
       Initiator3000(GameCreator3000(), List())
@@ -63,12 +63,12 @@ class BattleShipFxControllerPlayerOne extends Initializable {
       FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
       //Converting and saving
       val FileSaver3000: File = FileChooser3000.showSaveDialog(BattleShipFxApp.FirstStage3000)
-      BattleShipProtocol.convert(Game).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
+      BattleShipProtocol.convert(Game1).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
       log.appendText("\n" ++ "Saved Game")
     }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {
-    Game = game
+    Game1 = game
     playerTwoField.getChildren.clear()
     for (cells <- game.CellReader3000()) {
 
