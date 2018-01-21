@@ -79,7 +79,12 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML def saveGame(): Unit = {
 
-    }
+  }
+
+
+  @FXML def disablePane(): Unit = {
+    playerTwoField.setDisable(true)
+  }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {
     Game1 = game
