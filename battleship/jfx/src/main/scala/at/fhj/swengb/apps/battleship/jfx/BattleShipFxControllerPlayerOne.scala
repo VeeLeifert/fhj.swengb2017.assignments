@@ -1,17 +1,18 @@
 package at.fhj.swengb.apps.battleship.jfx
 
+import at.fhj.swengb.apps.battleship.PlayerFieldProtocol
+import at.fhj.swengb.apps.battleship.model._
+
+import java.io.File
 import java.net.URL
+import java.nio.file.{Files, Paths}
 import java.util.ResourceBundle
-import javafx.fxml.{FXML, Initializable}
-import javafx.scene.control._
+import javafx.fxml.{FXML, FXMLLoader, Initializable}
+import javafx.scene.{Parent, Scene}
+import javafx.scene.control.{Label, Slider, TextArea}
+import javafx.scene.layout.GridPane
 import javafx.stage.{FileChooser, Stage}
 import javafx.stage.FileChooser.ExtensionFilter
-import java.io.File
-import java.nio.file.{Files, Paths}
-import javafx.scene.layout.GridPane
-
-import at.fhj.swengb.apps.battleship.BattleShipProtocol
-import at.fhj.swengb.apps.battleship.model._
 
 
 object BattleShipFxControllerPlayerOne {
@@ -47,23 +48,39 @@ class BattleShipFxControllerPlayerOne extends Initializable {
       log.setText("")
       log.appendText("A new game has started")
       Initiator3000(GameCreator3000(), List())
+    } else{
+      @FXML def loadGame(): Unit = {
+        val FileChooser3000 = new FileChooser();
+        val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
+        FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
+        val FileLoader3000: File = FileChooser3000.showOpenDialog(BattleShipFxApp.FirstStage3000)
+        val (clickedPos, battleShipGame) = GameLoader3000(FileLoader3000.getAbsolutePath)
+        //Resetting log
+        log.setText("")
+        Initiator3000(clickedPos, battleShipGame)
+        LogAdder3000("Loaded Game")
+      }
     }
   }
 
   @FXML def toWelcome(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/welcomescreen.fxml"),BattleShipFxApp.FirstStage3000)
 
-  @FXML def toPlayerTwo(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playertwoscreen.fxml"),BattleShipFxApp.FirstStage3000)
+  @FXML def toPlayerTwo(): Unit = {
+    //Using FileChooser for accessing our files
+    val FileChooser3000 = new FileChooser();
+    //Filtering on our protobuf files with the ending .bin
+    val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
+    FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
+    //Converting and saving
+    val FileSaver3000: File = FileChooser3000.showSaveDialog(BattleShipFxApp.FirstStage3000)
+    PlayerFieldProtocol.convert(Game1).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
+    log.appendText("\n" ++ "Saved Game")
+
+    BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playertwoscreen.fxml"),BattleShipFxApp.FirstStage3000)
+  }
 
   @FXML def saveGame(): Unit = {
-      //Using FileChooser for accessing our files
-      val FileChooser3000 = new FileChooser();
-      //Filtering on our protobuf files with the ending .bin
-      val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
-      FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
-      //Converting and saving
-      val FileSaver3000: File = FileChooser3000.showSaveDialog(BattleShipFxApp.FirstStage3000)
-      BattleShipProtocol.convert(Game1).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
-      log.appendText("\n" ++ "Saved Game")
+
     }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {
@@ -91,4 +108,18 @@ class BattleShipFxControllerPlayerOne extends Initializable {
     BattleShipFxControllerPlayerOne.sliderStateRenewer(Stack)
   }
 
+  private def GameLoader3000(filePath: String): (PlayerField, List[BattlePos]) = {
+    val LoadDestination = at.fhj.swengb.apps.battleship.PlayerFieldProtobuf.PlayerField
+      .parseFrom(Files.newInputStream(Paths.get(filePath)))
+
+    val Game = PlayerField(PlayerFieldProtocol.convert(LoadDestination).battleField,
+      LogAdder3000,
+      SliderAdder3000,
+      WidthReader3000,
+      HeightReader3000,
+      null)
+
+    Game.GameState = List()
+    (Game, PlayerFieldProtocol.convert(LoadDestination).GameState.reverse)
+  }
 }
