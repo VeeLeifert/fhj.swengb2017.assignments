@@ -1,0 +1,17 @@
+
+
+!
+VerticalSubmarine 3 1""
+VerticalBattleship 0 0"	!
+
+HorizontalSubmarine 3 0"!
+
+HorizontalCruiser 1 1"
+VerticalSubmarine 3 3"!
+
+HorizontalDestroyer 2 0"
+VerticalDestroyer 2 1"
+VerticalCruiser 1 0"#
+
+HorizontalDestroyer 2 2"!
+VerticalSubmarine 3 2""""""""""	""""""
