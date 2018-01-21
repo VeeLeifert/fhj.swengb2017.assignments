@@ -48,8 +48,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
       log.setText("")
       log.appendText("A new game has started")
       Initiator3000(GameCreator3000(), List())
-    } else{
-      @FXML def loadGame(): Unit = {
+    } else {
         val FileChooser3000 = new FileChooser();
         val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
         FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
@@ -59,7 +58,6 @@ class BattleShipFxControllerPlayerOne extends Initializable {
         log.setText("")
         Initiator3000(clickedPos, battleShipGame)
         LogAdder3000("Loaded Game")
-      }
     }
   }
 
