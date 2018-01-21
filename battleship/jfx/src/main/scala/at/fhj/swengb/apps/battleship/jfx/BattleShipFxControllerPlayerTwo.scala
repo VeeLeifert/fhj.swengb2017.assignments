@@ -47,8 +47,10 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
   @FXML var Title: Label = _
   private var Game2: PlayerField = _
   @FXML private var playerOneField: GridPane = _
+  @FXML private var saveGameButton: Button = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
+    saveGameButton.setDisable(true)
     if (BattleShipFxControllerPlayerTwo.loadedGame == 0) {
       //Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerTwo)
       if (BattleShipFxControllerPlayerTwo.newGameChecker2 == 1) {
@@ -62,6 +64,7 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
         log.setText("")
         Initiator3000(clickedPos, battleShipGame)
       }
+
       if (BattleShipFxControllerPlayerTwo.savedGame == 1){
         BattleShipFxControllerPlayerTwo.savedGame = 0
         //Using FileChooser for accessing our files
@@ -86,6 +89,7 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
       log.setText("")
       Initiator3000(clickedPos, battleShipGame)
       LogAdder3000("Loaded Game")
+      PlayerFieldProtocol.convert(Game2).writeTo(Files.newOutputStream(Paths.get("./battleship/gamestates/player2.bin")))
       BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playeronescreen.fxml"),BattleShipFxApp.FirstStage3000)
     }
   }
@@ -110,11 +114,12 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
     PlayerFieldProtocol.convert(Game2).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
     LogAdder3000("Saved Game")
     BattleShipFxControllerPlayerOne.saveGameChecker(1)
-    BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playertwoscreen.fxml"),BattleShipFxApp.FirstStage3000)
+    BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playeronescreen.fxml"),BattleShipFxApp.FirstStage3000)
   }
 
   @FXML def disablePane(): Unit = {
-     playerOneField.setDisable(true)
+    playerOneField.setDisable(true)
+    saveGameButton.setDisable(false)
   }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {

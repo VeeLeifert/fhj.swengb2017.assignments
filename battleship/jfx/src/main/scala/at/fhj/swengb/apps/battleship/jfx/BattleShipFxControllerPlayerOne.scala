@@ -8,7 +8,7 @@ import java.nio.file.{Files, Paths}
 import java.util.ResourceBundle
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.{Parent, Scene}
-import javafx.scene.control.{Label, Slider, TextArea}
+import javafx.scene.control.{Label, Slider, TextArea, Button}
 import javafx.scene.layout.GridPane
 import javafx.stage.{FileChooser, Stage}
 import javafx.stage.FileChooser.ExtensionFilter
@@ -48,6 +48,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
   @FXML var Title: Label = _
   private var Game1: PlayerField = _
   @FXML private var playerTwoField: GridPane = _
+  @FXML private var saveGameButton: Button = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     if(BattleShipFxControllerPlayerOne.loadedGame == 0) {
@@ -88,6 +89,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
       log.setText("")
       Initiator3000(clickedPos, battleShipGame)
       LogAdder3000("Loaded Game")
+      PlayerFieldProtocol.convert(Game1).writeTo(Files.newOutputStream(Paths.get("./battleship/gamestates/player1.bin")))
       BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playertwoscreen.fxml"),BattleShipFxApp.FirstStage3000)
     }
   }
@@ -118,6 +120,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML def disablePane(): Unit = {
     playerTwoField.setDisable(true)
+    saveGameButton.setDisable(true)
   }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {

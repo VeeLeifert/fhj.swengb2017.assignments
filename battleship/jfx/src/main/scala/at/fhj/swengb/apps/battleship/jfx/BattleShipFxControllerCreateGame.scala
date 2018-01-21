@@ -13,6 +13,7 @@ object BattleShipFxControllerCreateGame {
   var playerOne: String = _
   var playerTwo: String = _
   var battleName: String = _
+  var loadedGame: Int = _
 
   def getPlayerOne(name: String) = {
     if(name != "") {
