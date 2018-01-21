@@ -163,5 +163,19 @@
 | 5
 | Coding: Playernames, Gamename, and other stuff
 
+| heiderst16
+| 2018-01-20
+| 7
+| Coding: Multiplayer functionalities
+
+| leifertv15
+| 2018-01-20
+| 6
+| Coding: Multiplayer functionalities
+
+| heiderst16
+| 2018-01-20
+| 6.5
+| Coding: Multiplayer functionalities
 
 |===
