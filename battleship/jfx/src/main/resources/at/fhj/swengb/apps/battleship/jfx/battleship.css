@@ -54,7 +54,7 @@
 
 #CONTINUE-Button {
     -fx-text-fill: #000000;
-    -fx-font-size: 40px;
+    -fx-font-size: 25px;
     -fx-font-family: "BerlinSansFB";
     -fx-background-color: #ffffff;
 }
@@ -74,10 +74,76 @@
 #Credits-Text {
     -fx-background-color: #ffffff;
     -fx-outline: none;
-    -fx-control-inner-background: #000000;
 }
 
 #Splash {
     -fx-background-image: url(Recourses/splash_color.png);
     -fx-background-size: 800px 566px;
+}
+
+#Borderpane {
+    -fx-background-image: url(Recourses/menu_bg.png);
+    -fx-background-size: 800px 566px;
+}
+
+#NextPlayerButton {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-font-family:"BerlinSansFB";
+    -fx-font-size: 14px;
+}
+
+.text {
+    -fx-font-family:"BerlinSansFB";
+}
+
+.textfield1 {
+    -fx-background-color: #ffffff;
+    -fx-outline: none;
+    -fx-font-family:"BerlinSansFB";
+    -fx-font-size: 12px;
+    -fx-border-radius:none;
+    -fx-font-weight: bold;
+}
+
+.textfield2 {
+    -fx-background-color: #ffffff;
+    -fx-outline: none;
+    -fx-font-family:"BerlinSansFB";
+    -fx-font-size: 10px;
+    -fx-border-radius:none;
+}
+
+.editmodebutton {
+    -fx-background-color: #dddddd;
+    -fx-border-radius: 0px;
+    -fx-border-color: #818181;
+    -fx-padding: 10 0 10 0;
+    
+}
+
+.HeadersInGame {
+    -fx-font-family: "BerlinSansFB";
+    -fx-text-fill: #000000;
+    -fx-font-size: 45px;
+}
+
+#gameOver {
+    -fx-background-image: url(Recourses/gameOver.png);
+    -fx-background-size: 800px 566px;
+}
+
+#WinnerText {
+    -fx-font-size: 37px;
+}
+
+.HeadersInGameReplay {
+    -fx-font-family: "BerlinSansFB";
+    -fx-text-fill: #000000;
+    -fx-font-size: 40px;
+}
+
+#Slider {
+    -fx-color: #76b82a;
+    -fx-control-inner-background: #818181;
 }
