@@ -22,7 +22,9 @@ class BattleShipFxControllerWelcome extends Initializable {
   @FXML def newGame(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/createnewgamescreen.fxml"),BattleShipFxApp.FirstStage3000)
 
   @FXML def loadGame(): Unit = {
-
+    BattleShipFxControllerPlayerOne.loadGameChecker(1)
+    BattleShipFxControllerPlayerTwo.loadGameChecker(1)
+    BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playeronescreen.fxml"),BattleShipFxApp.FirstStage3000)
   }
 
   @FXML def toHighscores(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/highscores.fxml"),BattleShipFxApp.FirstStage3000)

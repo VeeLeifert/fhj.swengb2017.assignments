@@ -61,7 +61,7 @@ case class PlayerField(battleField: BattleField,
   }
 
   def GameUpdater3000(vessel: Vessel, pos: BattlePos): Unit = {
-    log(vessel.name.value + "was hit!")
+    log(vessel.name.value + " was hit!")
 
     if (GameState.contains(vessel)) {
 

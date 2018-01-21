@@ -20,6 +20,8 @@ object BattleShipFxControllerPlayerTwo {
   var SliderState: Int = _
 
   var newGameChecker2: Int = _
+  var savedGame: Int = _
+  var loadedGame: Int = _
 
   def resetNewGameChecker(state: Int) {
     newGameChecker2 = state
@@ -27,6 +29,14 @@ object BattleShipFxControllerPlayerTwo {
 
   def sliderStateRenewer(value: Int) = {
 
+  }
+
+  def saveGameChecker(value: Int) ={
+    savedGame = value
+  }
+
+  def loadGameChecker(value: Int) ={
+    loadedGame = value
   }
 
 }
@@ -39,18 +49,44 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
   @FXML private var playerOneField: GridPane = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
-    Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerTwo)
-
-    if (BattleShipFxControllerPlayerTwo.newGameChecker2 == 0) {
-      BattleShipFxControllerPlayerTwo.newGameChecker2 = 1
-      log.setText("")
-      log.appendText("A new game has started")
-      Initiator3000(GameCreator3000(), List())
-    } else {
+    if (BattleShipFxControllerPlayerTwo.loadedGame == 0) {
+      //Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerTwo)
+      if (BattleShipFxControllerPlayerTwo.newGameChecker2 == 1) {
+        BattleShipFxControllerPlayerTwo.newGameChecker2 = 0
+        log.setText("")
+        log.appendText("A new game has started")
+        Initiator3000(GameCreator3000(), List())
+      } else {
         val (clickedPos, battleShipGame) = GameLoader3000("./battleship/gamestates/player2.bin")
         //Resetting log
         log.setText("")
         Initiator3000(clickedPos, battleShipGame)
+      }
+      if (BattleShipFxControllerPlayerTwo.savedGame == 1){
+        BattleShipFxControllerPlayerTwo.savedGame = 0
+        //Using FileChooser for accessing our files
+        val FileChooser3000 = new FileChooser()
+        //Filtering on our protobuf files with the ending .bin
+        val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
+        FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
+        //Converting and saving
+        val FileSaver3000: File = FileChooser3000.showSaveDialog(BattleShipFxApp.FirstStage3000)
+        PlayerFieldProtocol.convert(Game2).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
+        LogAdder3000("Saved Game")
+        BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playeronescreen.fxml"),BattleShipFxApp.FirstStage3000)
+      }
+    } else {
+      BattleShipFxControllerPlayerTwo.loadedGame = 0
+      val FileChooser3000 = new FileChooser();
+      val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
+      FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
+      val FileLoader3000: File = FileChooser3000.showOpenDialog(BattleShipFxApp.FirstStage3000)
+      val (clickedPos, battleShipGame) = GameLoader3000(FileLoader3000.getAbsolutePath)
+      //Resetting log
+      log.setText("")
+      Initiator3000(clickedPos, battleShipGame)
+      LogAdder3000("Loaded Game")
+      BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playeronescreen.fxml"),BattleShipFxApp.FirstStage3000)
     }
   }
 
@@ -64,11 +100,21 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
   }
 
   @FXML def saveGame(): Unit = {
-
+    //Using FileChooser for accessing our files
+    val FileChooser3000 = new FileChooser();
+    //Filtering on our protobuf files with the ending .bin
+    val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
+    FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
+    //Converting and saving
+    val FileSaver3000: File = FileChooser3000.showSaveDialog(BattleShipFxApp.FirstStage3000)
+    PlayerFieldProtocol.convert(Game2).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
+    LogAdder3000("Saved Game")
+    BattleShipFxControllerPlayerOne.saveGameChecker(1)
+    BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playertwoscreen.fxml"),BattleShipFxApp.FirstStage3000)
   }
 
   @FXML def disablePane(): Unit = {
-    playerOneField.setDisable(true)
+     playerOneField.setDisable(true)
   }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {
