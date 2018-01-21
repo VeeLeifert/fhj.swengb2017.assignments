@@ -175,7 +175,7 @@
 
 | heiderst16
 | 2018-01-20
-| 5
+| 6.5
 | Coding: Multiplayer functionalities
 
 |===

@@ -52,7 +52,11 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     if(BattleShipFxControllerPlayerOne.loadedGame == 0) {
-      //Title.setText(BattleShipFxControllerCreateGame.battleName ++ " - " ++ BattleShipFxControllerCreateGame.playerOne)
+      if (BattleShipFxApp.battleName != null && BattleShipFxApp.playerOne != null) {
+        Title.setText(BattleShipFxApp.battleName ++ " - " ++ BattleShipFxApp.playerOne)
+      } else {
+        Title.setText("Game - Player 1")
+      }
       if (BattleShipFxControllerPlayerOne.newGameChecker1 == 1) {
         BattleShipFxControllerPlayerOne.newGameChecker1 = 0
         log.setText("")
