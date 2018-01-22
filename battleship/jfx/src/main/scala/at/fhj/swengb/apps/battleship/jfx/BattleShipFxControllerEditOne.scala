@@ -10,7 +10,7 @@ class BattleShipFxControllerEditOne extends Initializable {
   @FXML var Title: Label = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
-    Title.setText(BattleShipFxApp.battleName ++ " - " ++ BattleShipFxApp.playerOne)
+    Title.setText("Edit" ++ " - " ++ BattleShipFxApp.playerOne)
   }
 
   @FXML def toWelcome(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/welcomescreen.fxml"),BattleShipFxApp.FirstStage3000)

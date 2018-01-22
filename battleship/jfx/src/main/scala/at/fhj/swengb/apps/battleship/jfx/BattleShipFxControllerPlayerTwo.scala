@@ -53,14 +53,14 @@ class BattleShipFxControllerPlayerTwo extends Initializable {
     saveGameButton.setDisable(true)
     if (BattleShipFxControllerPlayerTwo.loadedGame == 0) {
       if (BattleShipFxApp.battleName != null && BattleShipFxApp.playerTwo != null) {
-        Title.setText(BattleShipFxApp.battleName ++ " - " ++ BattleShipFxApp.playerTwo)
+        //Title.setText(BattleShipFxApp.battleName ++ " - " ++ BattleShipFxApp.playerTwo)
       } else {
-        Title.setText("Game - Player 2")
+        //Title.setText("Game - Player 2")
       }
       if (BattleShipFxControllerPlayerTwo.newGameChecker2 == 1) {
         BattleShipFxControllerPlayerTwo.newGameChecker2 = 0
         log.setText("")
-        log.appendText("A new game has started")
+        log.appendText("A new game has started /n")
         Initiator3000(GameCreator3000(), List())
       } else {
         val (clickedPos, battleShipGame) = GameLoader3000("./battleship/gamestates/player2.bin")
