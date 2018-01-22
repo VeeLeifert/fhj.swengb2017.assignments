@@ -47,7 +47,7 @@
         </GridPane>
     </center>
    <bottom>
-        <TextArea fx:id="log" prefHeight="100.0" prefWidth="790.0" styleClass="textField" wrapText="true" BorderPane.alignment="CENTER">
+        <TextArea fx:id="log" editable="false" prefHeight="100.0" prefWidth="790.0" styleClass="textField" wrapText="true" BorderPane.alignment="CENTER">
             <font>
                 <Font size="12.0" />
             </font>
@@ -60,13 +60,13 @@
         </TextArea>
    </bottom>
    <left>
-      <TextArea fx:id="playerOneInfo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+      <TextArea fx:id="playerOneInfo" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="170.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="5.0" />
          </BorderPane.margin></TextArea>
    </left>
    <right>
-      <TextArea fx:id="playerTwoInfo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+      <TextArea fx:id="playerTwoInfo" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="170.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets right="5.0" />
          </BorderPane.margin></TextArea>
@@ -91,7 +91,7 @@
                   <Insets left="15.0" />
                </GridPane.margin>
             </ImageView>
-            <Label fx:id="labelGame" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="470.0" styleClass="name-label" stylesheets="@battleship.css" GridPane.columnIndex="1">
+            <Label fx:id="labelGame" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="470.0" styleClass="name-label" stylesheets="@battleship.css" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="8.0" top="10.0" />
                </GridPane.margin>
@@ -99,7 +99,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label fx:id="labelPlayer" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="470.0" styleClass="name-label" stylesheets="@battleship.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="labelPlayer" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="470.0" styleClass="name-label" stylesheets="@battleship.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="8.0" />
                </GridPane.margin>

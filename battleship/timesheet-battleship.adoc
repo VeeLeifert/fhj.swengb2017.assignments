@@ -178,4 +178,9 @@
 | 6.5
 | Coding: Multiplayer functionalities
 
+| heiderst16
+| 2018-01-22
+| 4.5
+| Fixing new FXMLs, Fixing and polishing Code
+
 |===
