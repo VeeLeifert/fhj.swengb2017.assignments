@@ -66,6 +66,18 @@
     -fx-font-size: 21px;
 }
 
+.save-and-next-button {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-font-family:"BerlinSansFB";
+    -fx-font-size: 15px;
+}
+
+.name-label {
+    -fx-text-alignment: center;
+    -fx-font-size: 25px;
+}
+
 #Credits {
     -fx-background-image: url(Recourses/menu_bg.png);
     -fx-background-size: 800px 566px;
@@ -119,7 +131,7 @@
     -fx-border-radius: 0px;
     -fx-border-color: #818181;
     -fx-padding: 10 0 10 0;
-    
+
 }
 
 .HeadersInGame {
