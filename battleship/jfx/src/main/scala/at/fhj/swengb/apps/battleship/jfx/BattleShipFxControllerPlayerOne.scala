@@ -45,22 +45,29 @@ object BattleShipFxControllerPlayerOne {
 class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML var log: TextArea = _
-  @FXML var Title: Label = _
+  @FXML var labelGame: Label = _
+  @FXML var labelPlayer: Label = _
   private var Game1: PlayerField = _
   @FXML private var playerTwoField: GridPane = _
   @FXML private var saveGameButton: Button = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
+    saveGameButton.setDisable(true)
     if(BattleShipFxControllerPlayerOne.loadedGame == 0) {
-      if (BattleShipFxApp.battleName != null && BattleShipFxApp.playerOne != null) {
-        //Title.setText(BattleShipFxApp.battleName ++ " - " ++ BattleShipFxApp.playerOne)
+      if (BattleShipFxApp.battleName != null) {
+        labelGame.setText(BattleShipFxApp.battleName)
       } else {
-        //Title.setText("Game - Player 1")
+        labelGame.setText("Game")
+      }
+      if (BattleShipFxApp.playerOne != null) {
+        labelPlayer.setText(BattleShipFxApp.playerOne)
+      } else {
+        labelPlayer.setText("Player 1")
       }
       if (BattleShipFxControllerPlayerOne.newGameChecker1 == 1) {
         BattleShipFxControllerPlayerOne.newGameChecker1 = 0
         log.setText("")
-        log.appendText("A new game has started /n")
+        log.appendText("A new game has started \n")
         Initiator3000(GameCreator3000(), List())
       } else {
         val (clickedPos, battleShipGame) = GameLoader3000("./battleship/gamestates/player1.bin")
@@ -124,7 +131,6 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML def disablePane(): Unit = {
     playerTwoField.setDisable(true)
-    saveGameButton.setDisable(true)
   }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {

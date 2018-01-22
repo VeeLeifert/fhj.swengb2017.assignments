@@ -1,6 +1,6 @@
 #StartButton {
     -fx-background-color: #ffffff;
-    
+    -fx-font-size: 56px;
 }
 
 #MainMenu {
@@ -75,7 +75,7 @@
 
 .name-label {
     -fx-text-alignment: center;
-    -fx-font-size: 25px;
+    -fx-font-size: 30px;
 }
 
 #Credits {
@@ -116,6 +116,7 @@
     -fx-font-size: 12px;
     -fx-border-radius:none;
     -fx-font-weight: bold;
+    -fx-padding: 0 0 0 5;
 }
 
 .textfield2 {
