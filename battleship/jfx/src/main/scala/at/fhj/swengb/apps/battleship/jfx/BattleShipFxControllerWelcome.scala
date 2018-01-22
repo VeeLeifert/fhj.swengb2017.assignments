@@ -4,14 +4,6 @@ import java.net.URL
 import java.util.ResourceBundle
 import javafx.fxml.{FXML, Initializable}
 
-import java.io.File
-import java.nio.file.{Files, Paths}
-import at.fhj.swengb.apps.battleship.model._
-import at.fhj.swengb.apps.battleship.BattleShipProtocol
-
-import javafx.stage.{FileChooser, Stage}
-import javafx.stage.FileChooser.ExtensionFilter
-
 
 class BattleShipFxControllerWelcome extends Initializable {
 

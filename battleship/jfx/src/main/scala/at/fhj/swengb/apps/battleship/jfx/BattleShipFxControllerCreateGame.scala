@@ -5,8 +5,6 @@ import java.util.ResourceBundle
 import javafx.fxml.{FXML, Initializable}
 import javafx.scene.control._
 
-import scala.util.Random
-
 
 class BattleShipFxControllerCreateGame extends Initializable {
 

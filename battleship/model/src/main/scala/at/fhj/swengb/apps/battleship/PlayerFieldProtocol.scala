@@ -2,7 +2,6 @@ package at.fhj.swengb.apps.battleship
 
 import at.fhj.swengb.apps.battleship.PlayerFieldProtobuf.PlayerField.{Position, Vessel}
 import at.fhj.swengb.apps.battleship.model._
-
 import scala.collection.JavaConverters._
 
 object PlayerFieldProtocol {
@@ -78,8 +77,8 @@ object PlayerFieldProtocol {
       e => (), //Log
       e => (), //Slider
       e => e.toDouble, //CellWidth
-      e => e.toDouble, //CellHeight
-      game.getCommander)
+      e => e.toDouble)  //CellHeight
+
 
     //List with Cells that were already hit:
     val HitCells: List[BattlePos] = game.getHitCellsList.asScala.map(e => convert(e)).toList

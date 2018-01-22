@@ -147,7 +147,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   private def GameCreator3000(): PlayerField = {
     val Field = BattleField(10, 10, Fleet(FleetConfig.Standard))
-    PlayerField(BattleField.RandomPlacer3000(Field), LogAdder3000, SliderAdder3000, WidthReader3000, HeightReader3000, null)
+    PlayerField(BattleField.RandomPlacer3000(Field), LogAdder3000, SliderAdder3000, WidthReader3000, HeightReader3000)
   }
 
   def LogAdder3000(text: String): Unit = log.appendText(text + "\n")
@@ -166,8 +166,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
       LogAdder3000,
       SliderAdder3000,
       WidthReader3000,
-      HeightReader3000,
-      null)
+      HeightReader3000)
 
     Game.GameState = List()
     (Game, PlayerFieldProtocol.convert(LoadDestination).GameState.reverse)

@@ -7,8 +7,7 @@ case class PlayerField(battleField: BattleField,
                        log: String => Unit,
                        updateGameState: Int => Unit,
                        getCellWidth: Int => Double,
-                       getCellHeight: Int => Double,
-                       commander: String) {
+                       getCellHeight: Int => Double) {
 
   /**
     * remembers which vessel was hit at which position

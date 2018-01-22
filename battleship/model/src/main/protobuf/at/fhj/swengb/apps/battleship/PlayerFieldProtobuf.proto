@@ -12,7 +12,6 @@ message PlayerField {
     uint32 Columns = 2;
     repeated Vessel Vessels = 3;
     repeated Position HitCells = 4;
-    string Commander = 5;
 
     message Position {
         int32 Row = 1;
