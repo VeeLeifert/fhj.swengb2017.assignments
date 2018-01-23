@@ -6,10 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -28,32 +25,6 @@
          </image>
       </ImageView>
       <Button id="NextPlayerButton" fx:id="toPlayerOne" blendMode="SCREEN" layoutX="665.0" layoutY="14.0" mnemonicParsing="false" onAction="#toPlayerOne" prefHeight="70.0" prefWidth="110.0" stylesheets="@battleship.css" text="Start Game" />
-      <GridPane alignment="CENTER" hgap="5.0" layoutX="100.0" layoutY="150.0" vgap="5.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
       <Label layoutX="660.0" layoutY="102.0" styleClass="text" stylesheets="@battleship.css" text="Place your fleet:">
          <font>
             <Font size="17.0" />
@@ -72,5 +43,10 @@
       </Label>
       <TextField alignment="CENTER_RIGHT" layoutX="595.0" layoutY="390.0" prefWidth="200.0" styleClass="textfield1" stylesheets="@battleship.css" text="Battleship: vertical: 3/7-7/7" />
       <Button layoutX="621.0" layoutY="500.0" mnemonicParsing="false" prefWidth="100.0" styleClass="editmodebutton" stylesheets="@battleship.css" text="reset fleet" />
+      <ImageView fitHeight="380.0" fitWidth="380.0" layoutX="80.0" layoutY="150.0">
+         <image>
+            <Image url="@../../../../../../../../../../../../../Users/heiderst16/Desktop/Gridpane.PNG" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
