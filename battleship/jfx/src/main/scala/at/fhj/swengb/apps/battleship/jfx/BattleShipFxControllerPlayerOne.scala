@@ -79,16 +79,17 @@ class BattleShipFxControllerPlayerOne extends Initializable {
       if (BattleShipFxControllerPlayerOne.savedGame == 1){
         BattleShipFxControllerPlayerOne.savedGame = 0
         val FileChooser3000 = new FileChooser()
+        FileChooser3000.setTitle("Save Player 1 Playerfield")
         val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
         FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
         val FileSaver3000: File = FileChooser3000.showSaveDialog(BattleShipFxApp.FirstStage3000)
         PlayerFieldProtocol.convert(Game1).writeTo(Files.newOutputStream(Paths.get(FileSaver3000.getAbsolutePath)))
         LogAdder3000("Saved Game")
-        BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/playertwoscreen.fxml"),BattleShipFxApp.FirstStage3000)
       }
     } else {
       BattleShipFxControllerPlayerOne.loadedGame = 0
       val FileChooser3000 = new FileChooser()
+      FileChooser3000.setTitle("Load Player 1 Playerfield")
       val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
       FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
       val FileLoader3000: File = FileChooser3000.showOpenDialog(BattleShipFxApp.FirstStage3000)
@@ -111,6 +112,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML def saveGame(): Unit = {
     val FileChooser3000 = new FileChooser();
+    FileChooser3000.setTitle("Save Player 1 Playerfield")
     val ProtoFilter3000: FileChooser.ExtensionFilter = new ExtensionFilter("Protobuf files","*.bin")
     FileChooser3000.getExtensionFilters.add(ProtoFilter3000)
     val FileSaver3000: File = FileChooser3000.showSaveDialog(BattleShipFxApp.FirstStage3000)

@@ -159,3 +159,8 @@
     -fx-color: #76b82a;
     -fx-control-inner-background: #818181;
 }
+
+.textareas {
+    -fx-background-color: lightgrey, lightgrey, lightgrey, lightgrey;
+    -fx-background-radius: 0, 0, 0, 0;
+}
