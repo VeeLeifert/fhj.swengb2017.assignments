@@ -183,4 +183,9 @@
 | 4.5
 | Fixing new FXMLs, Fixing and polishing Code
 
+|leifertv15
+| 2018-01-24
+| 5
+| Creating and scheduling presentation & what to say
+
 |===
