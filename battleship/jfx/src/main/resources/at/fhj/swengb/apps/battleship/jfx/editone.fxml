@@ -45,7 +45,7 @@
       <Button layoutX="64.0" layoutY="500.0" mnemonicParsing="false" prefWidth="100.0" styleClass="editmodebutton" stylesheets="@battleship.css" text="reset fleet" />
       <ImageView fitHeight="380.0" fitWidth="380.0" layoutX="345.0" layoutY="150.0">
          <image>
-            <Image url="@../../../../../../../../../../../../../Users/heiderst16/Desktop/Gridpane.PNG" />
+            <Image url="@Recourses/Gridpane.PNG" />
          </image>
       </ImageView>
    </children>
