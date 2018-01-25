@@ -50,21 +50,23 @@ class BattleShipFxControllerPlayerOne extends Initializable {
   private var Game1: PlayerField = _
   @FXML private var playerTwoField: GridPane = _
   @FXML private var saveGameButton: Button = _
+  @FXML private var toPlayerTwoButton: Button = _
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = {
     saveGameButton.setDisable(true)
+    toPlayerTwoButton.setDisable(true)
+    if (BattleShipFxApp.battleName != null) {
+      labelGame.setText(BattleShipFxApp.battleName)
+    } else {
+      BattleShipFxApp.getFinalBattleName("")
+      labelGame.setText(BattleShipFxApp.battleName)
+    }
+    if (BattleShipFxApp.playerOne != null) {
+      labelPlayer.setText(BattleShipFxApp.playerOne)
+    } else {
+      labelPlayer.setText("Player 1")
+    }
     if(BattleShipFxControllerPlayerOne.loadedGame == 0) {
-      if (BattleShipFxApp.battleName != null) {
-        labelGame.setText(BattleShipFxApp.battleName)
-      } else {
-        BattleShipFxApp.getFinalBattleName("")
-        labelGame.setText(BattleShipFxApp.battleName)
-      }
-      if (BattleShipFxApp.playerOne != null) {
-        labelPlayer.setText(BattleShipFxApp.playerOne)
-      } else {
-        labelPlayer.setText("Player 1")
-      }
       if (BattleShipFxControllerPlayerOne.newGameChecker1 == 1) {
         BattleShipFxControllerPlayerOne.newGameChecker1 = 0
         log.setText("")
@@ -125,6 +127,7 @@ class BattleShipFxControllerPlayerOne extends Initializable {
 
   @FXML def disablePane(): Unit = {
     playerTwoField.setDisable(true)
+    toPlayerTwoButton.setDisable(false)
   }
 
   def Initiator3000(game: PlayerField, ClickChecker3000: List[BattlePos]): Unit = {

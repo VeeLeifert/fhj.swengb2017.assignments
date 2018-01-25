@@ -117,7 +117,7 @@
                   <Insets left="15.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="toPlayerTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toPlayerTwo" prefHeight="30.0" prefWidth="110.0" styleClass="save-and-next-button" stylesheets="@battleship.css" text="NEXT PLAYER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="toPlayerTwoButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toPlayerTwo" prefHeight="30.0" prefWidth="110.0" styleClass="save-and-next-button" stylesheets="@battleship.css" text="NEXT PLAYER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="7.0" left="15.0" />
                </GridPane.margin>
