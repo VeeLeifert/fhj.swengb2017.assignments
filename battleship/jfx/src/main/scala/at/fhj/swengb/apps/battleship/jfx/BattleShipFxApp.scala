@@ -18,12 +18,12 @@ object BattleShipFxApp {
     Application.launch(classOf[BattleShipFxApp], args: _*)
   }
 
+  // Functions to switch through different scenes:
   def ScenePresenter3000(scene: Scene, stage: Stage): Unit = {
     stage.setScene(scene)
     stage.setResizable(false)
     stage.show()
   }
-
   def SceneLoader3000(sceneString: String): Scene = {
     val triedScene = Try(FXMLLoader.load[Parent](getClass.getResource(sceneString)))
     triedScene match {
@@ -37,6 +37,7 @@ object BattleShipFxApp {
     }
   }
 
+  // If the user didn't set a name, use 'Player 1' or 'Player 2'
   def getPlayerOne(name: String) = {
     if(name != "") {
       playerOne = name
@@ -44,7 +45,6 @@ object BattleShipFxApp {
       playerOne = "Player 1"
     }
   }
-
   def getPlayerTwo(name: String) = {
     if(name != "") {
       playerTwo = name
@@ -53,6 +53,8 @@ object BattleShipFxApp {
     }
   }
 
+
+  // Function to generate a random battlename using 4 lists of strings:
   def createBattleName(): String = {
 
     val listOne: Seq[String] = Seq("Final", "Bloody", "Horrible", "Last")
@@ -78,6 +80,7 @@ object BattleShipFxApp {
     battleName
   }
 
+  // If user emptied the textfield, generate a new random battlename and use it
   def getFinalBattleName(name: String) = {
     if(name != "") {
       battleName = name
@@ -92,6 +95,8 @@ class BattleShipFxApp extends Application {
 
   override def start(stage: Stage): Unit = {
     BattleShipFxApp.FirstStage3000 = stage
+
+    // Load the Splashscreen first
     BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/splashscreen.fxml"),stage)
   }
 }

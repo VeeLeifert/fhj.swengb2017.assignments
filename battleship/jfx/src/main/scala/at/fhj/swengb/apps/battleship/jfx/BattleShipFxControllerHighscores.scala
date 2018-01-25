@@ -10,7 +10,9 @@ class BattleShipFxControllerHighscores extends Initializable {
 
   }
 
+  // Go to the welcome screen
   @FXML def toWelcome(): Unit = BattleShipFxApp.ScenePresenter3000(BattleShipFxApp.SceneLoader3000("/at/fhj/swengb/apps/battleship/jfx/welcomescreen.fxml"),BattleShipFxApp.FirstStage3000)
 
 
+  // Functionalities not here yet
 }
